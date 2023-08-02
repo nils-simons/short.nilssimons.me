@@ -1,6 +1,7 @@
 var admin = require("firebase-admin");
 const express = require('express')
 const cors = require('cors')
+const path = require('path')
 const app = express()
 const PORT = 1333
 
@@ -11,6 +12,7 @@ admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });
 
+app.use(express.static('public'));
 
 app.use(express.json());
 app.use(cors());
@@ -20,6 +22,11 @@ postCreate.postCreate(app, admin)
 
 var postGet = require('./api/postGet')
 postGet.postGet(app, admin)
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'))
+})
+
 
 app.get('/:hash', async (req, res) => {
     var hash = req.params.hash

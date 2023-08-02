@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHORT.NILSSIMONS.ME</title>
+
+    <!-- CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./assets/css/header.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+
+    <!-- JS -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+
+    <!-- and it's easy to individually load additional languages -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/go.min.js"></script>
+
+<script>hljs.highlightAll();</script>
+</head>
+<body>
+    <header>
+        <h1>SHORT/S.NILSSIMONS.ME</h1>
+    </header>
+    <main>
+        <article id="create">
+            <a href="#create">
+                <h2># CREATE A URL</h2>
+            </a>
+            <p>To create a url just POST following payload to <code>short.nilssimons.me/create</code>:</p>
+            <pre><code class="language-json">{
+    "url": "https://{some long url}"
+}</code></pre>
+        </article>
+        <br>
+        <article id="get">
+            <a href="#get">
+                <h2># GET A URL</h2>
+            </a>
+            <p>To get a url infos just POST to <code>short.nilssimons.me/{yourhash}</code></p>
+        </article>
+        <br>
+        <article id="use">
+            <a href="#use">
+                <h2># USE A URL</h2>
+            </a>
+            <p>To use a url just GET <code>short.nilssimons.me/{yourhash}</code></p>
+        </article>
+    </main>
+</body>
+</html>
