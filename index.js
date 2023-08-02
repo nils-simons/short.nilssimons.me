@@ -5,7 +5,7 @@ const app = express()
 const PORT = 1333
 
 
-var serviceAccount = require("./configs/short-nilssimons-me-firebase-adminsdk-8hdmm-0728fe0747.json");
+var serviceAccount = require("./configs/short-nilssimons-me-firebase-adminsdk.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
