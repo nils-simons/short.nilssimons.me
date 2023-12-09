@@ -1,10 +1,12 @@
-var randomString = require('random-string');
+const randomString = require('random-string');
+
+const db = require('../db');
 
 function postCreate(app, admin) {
     app.post('/create', async (req, res) => {
         res.setHeader('Content-Type', 'application/json');
         var hash = randomString({length: 7});
-        await admin.firestore().collection('urls').doc().set({
+        db.add(hash, {
             hash: hash,
             long_url: req.body.url,
             short_url: 's.nilssimons.me/' + hash,

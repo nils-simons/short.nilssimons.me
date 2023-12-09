@@ -1,3 +1,4 @@
+const db = require('../db');
 
 function postGet(app, admin) {
     app.post('/:hash', async (req, res) => {
@@ -5,19 +6,13 @@ function postGet(app, admin) {
         res.setHeader('Content-Type', 'application/json');
 
         var hash = req.params.hash
-        var urlsSnap = await admin.firestore().collection('urls').where('hash', '==', hash).get();
+        var data = await db.get(hash)
     
-        if (urlsSnap.size == 0) {
+        if (!data) {
             res.sendStatus(404);
             return;
         }
-    
-    
-        url = urlsSnap.docs[0]
-        urlData = url.data();
-        console.log(`POST: ${hash}`);
-    
-        res.send(JSON.stringify(urlData));
+        res.send(JSON.stringify(data));
     })
 }
 
